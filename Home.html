@@ -1,0 +1,203 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport"    content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author"      content="IDAM">
+        
+        <title>iDAM SYSONE</title>
+        <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+        
+        <style>
+            .myDiv {
+              position: absolute;
+              background-color: #141414;
+              color: #ffffff;
+              font-size:60px;
+              text-align:center;            
+              height: 100px;
+              top: 0;right: 0;  left: 0;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            
+            </style>
+        <style>
+            .footer  {
+                position: fixed; 
+                height: 60px; 
+                color: #ffffff;
+                font-size: 12px;
+                bottom: 0; right: 0;  left: 0; 
+                background-color: #141414;
+                padding: 15px 0;
+            }
+            </style>
+
+
+        <style>
+            .imagen  {
+                background-color: #ffffff;
+                width: 85px;
+                height: 85px;
+                border-radius: 20%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                           
+            }
+            </style>
+        <style>
+            .espacio{
+                
+                width: 20px;
+                height: 20px;                           
+            }
+            </style>
+        <style>
+            .cuerpotext{
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                top: 15%; right: 0;  left: 0;  
+                                     
+            }
+            </style>
+
+        <style>
+            .wrapper {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-gap: 10px;
+                grid-auto-rows: minmax(100px, auto);  
+                                    
+            }
+            </style>
+        <style>
+            .two {
+                    grid-column: 3;
+                    grid-row: 2;
+                    }
+            </style>
+        <style>
+            .one {
+                    grid-column: 2;
+                    grid-row: 2;
+                    }
+            </style>
+
+    </head>
+
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top headroom" 
+        style="background: #141414;position: absolute;text-align:center;
+        top: 0;right: 0;  left: 0;display: flex;
+              justify-content: center;
+              align-items: center;color: #ffffff;font-size:20px;">
+
+            
+            <div class="imagen" >
+                <img src={{datosusuario.logo_institucion}} width="75" height="75">
+                
+            </div>
+            <div class="espacio">
+            </div>
+
+            <b> {{ datosusuario.nombre }}</b> 
+
+
+            <div class="espacio">
+            </div>
+            <div class="imagen" >
+                <img src="{% static 'images/Logo_Solo.jpg' %}" width="75" height="75">
+                
+            </div>
+          </div>
+	<!-- container -->
+	<div class="container">
+		<br>
+
+		<div class="row">
+			<div class="col-sm-6">
+				
+			</div>
+			<div class="col-sm-6">
+				
+			</div>
+		</div> <!-- /row -->
+
+		<div class="row">
+
+		</div> <!-- /row -->
+
+          <div class="jumbotron top-space align-items-center" 
+                style="position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                top: 15%; right: 0;  left: 0;">       
+            <div class="container" style="text-align:center" >
+                <div class="wrapper">
+                    <div class="one">
+                        <div class="h-caption" >
+                            <img class="el-image" alt="" src="{% static 'images/ingenierodatos.jpg' %}" alt='artsy Hong' width="400" height="250"><h4> CONSULTA DE REGISTROS </h4>
+                        </div>
+
+                    </div>
+                  
+                
+                    <div class="two">
+                        <div class="h-caption" >
+                            <img class="el-image" alt="" src="{% static 'images/analiticaavanzada.jpg' %}" alt='artsy Hong' width="400" height="250"><h4>REGISTRAR USUARIOS</h4>
+                        </div>
+    
+                    </div>
+
+                </div>
+                <a class="btn" href="{% url 'home' %}"  style="background: #141414;color: #ffffff;
+                font-size:20px; text-align:center;padding: 10px 56px;border-radius: 10%; ">Salir</a>
+
+                </div>
+                
+              </div>
+            </div>
+              
+        
+
+        <div class="navbar navbar-inverse navbar-fixed-top headroom" 
+        style="position: fixed; 
+        height: 60px; 
+        color: #ffffff;
+        font-size: 12px;
+        bottom: 0; right: 0;  left: 0; 
+        background-color: #141414;
+        padding: 15px 0;">
+            <div class="container" style="text-align:center; ">
+				<div class="row">					
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+							<p class="simplenav">
+								<a href="{% url 'home' %}" style="text-align:center; color: #ffffff;">HOME</a> | 
+								<a href="{% url 'aboutus' %}" style="text-align:center; color: #ffffff;">QUIENES SOMOS</a> |
+								<a href="{% url 'contacto' %}" style="text-align:center; color: #ffffff;">CONTACTOS</a> |
+							</p>
+						</div>
+					</div>
+
+				</div>
+
+                </div>
+            </div>
+	
+            
+        
+    </body>
+
+    </html>
+
+

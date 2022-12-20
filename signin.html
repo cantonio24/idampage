@@ -1,3 +1,9 @@
+{% if message %}
+<script>
+	alert('{{ message }}');
+</script>
+{% endif %}
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -25,10 +31,9 @@
 	<script src="assets/js/respond.min.js"></script>
 	<![endif]-->
 </head>
-
-<body class="home">
+<body>
 	<!-- Fixed navbar -->
-	<div class="navbar navbar-inverse navbar-fixed-top headroom" style="background: #141414;position: absolute;">
+	<div class="navbar navbar-inverse navbar-fixed-top headroom" style="background: #141414;">
 		<div class="container" >
 			<div class="navbar-header" style="width:264px; height:140px;">
 				<!-- Button for smallest screens -->
@@ -45,7 +50,7 @@
 						<div class="col-md-6 widget">
 							<div class="widget-body">
 								<p class="simplenav">
-									<a href="{% url 'home' %}">Home</a> | 
+									<a href="{% url 'home' %}">HOME</a> | 
 									<a href="{% url 'aboutus' %}">QUIENES SOMOS</a> |
 									<a href="{% url 'contacto' %}">CONTACTOS</a> |
 									<a class="btn" href="{% url 'signin' %}" style="background: transparent;border: 2px solid #ffffff;">SIGN IN / SIGN UP</a>
@@ -64,10 +69,10 @@
 					<li><a class="btn" href="{% url 'signin' %}">SIGN IN / SIGN UP</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
+
 		</div>
 	</div> 
 	<!-- /.navbar -->
-
 	<div class="container">
 		<div class="row">
 			<h1 class="col-md-3 col-md-offset-5" style="background:#ffffff;color:#ffffff;font-size:60px;"><b>SYSONE </b> </h1>
@@ -76,136 +81,72 @@
 			<h1 class="col-md-3 col-md-offset-5" style="background:#ffffff;color:#ffffff;font-size:60px;"><b>SYSONE </b> </h1>
 		</div>
 	</div>
-
-	<!-- Header -->
-	<header id="head" style="background:url( ../static/images/3.jpg)">
-		<div class="container">
-			<div class="row">
-				<h1 class="col-md-3 col-md-offset-5" style="background:#141414;color:#ffffff;font-size:60px;"><b>SYSONE </b> </h1>
-			</div>
-			<div class="row">	
-				<h1 class="lead" style="color:#141414"><b>Sistema de reconocimiento facial</b>  </h1>
-				
-				<p ><a class="btn btn-default btn-lg " role="button" style="color:#191544;outline-color: #251c74;">Más Información </a> </p>
-			</div>
-		</div>
-	</header>
-	<!-- /Header -->
-
-		
-
 
 	<!-- container -->
 	<div class="container">
-		<br>
+
+		<ol class="breadcrumb">
+			<li><a href="{% url 'home' %}">Home</a></li>
+			<li class="active">User access</li>
+		</ol>
 
 		<div class="row">
-			<div class="col-sm-6">
+			
+			<!-- Article main content -->
+			<article class="col-xs-12 maincontent">
+				<header class="page-header">
+					<h1 class="page-title">Sign <b>In</b> </h1>
+				</header>
 				
-			</div>
-			<div class="col-sm-6">
-				
-			</div>
-		</div> <!-- /row -->
+				<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<h3 class="thin text-center">Iniciar sesión en su cuenta</h3>
+							<p class="text-center text-muted">Ingresar el usuario y contraseña asignados, 
+								sí aún no tiene usuario ponerse en contacto con la empresa para  
+								<a href="{% url 'contacto' %}">Registrar </a> .</p>
+							<hr>
+							
+							<form action="/postsignIn/" method="post">
+								{% csrf_token %}
+								<div class="top-margin">
+									<label for="Email">Usuario/Email <span class="text-danger">*</span></label>
+									<input type="email" id="Email" name="email"class="form-control">
+								</div>
+								<div class="top-margin">
+									<label for="Password">Contraseña<span class="text-danger">*</span></label>
+									<input type="password" id="Password" name="pass" class="form-control">
+								</div>
 
-		<div class="row">
+								<hr>
 
-		</div> <!-- /row -->
-
-
-	<!-- NUESTRAS SERVICIOS-->
-	<div class="jumbotron top-space align-items-center">
-		<div class="container">
-			
-			<h3 class="text-center thin" style="color:#141414;font-size:60px;"><b>NUESTROS SERVICIOS</b> </h3>
-			
-			<div class="row ">
-
-				<div class="col-md-6  ">
-					<div class="h-caption" >
-						<img class="el-image" alt="" src="{% static 'images/analiticaavanzada.jpg' %}" alt='artsy Hong' width="400" height="250"><h4>ANALÍTICA AVANZADA</h4></div>
-
-				</div>
-				<div class="col-md-6  ">
-					<div class="h-caption" >
-						<img class="el-image" alt="" src="{% static 'images/ingenierodatos.jpg' %}" alt='artsy Hong' width="400" height="250"><h4>INGENIERÍA DE DATOS </h4></div>
-
-				</div>
-				
-			</div> <!-- /row  -->
-			<div class="row row-centered">
-
-				<div class="col-md-6  ">
-					<div class="h-caption" >
-						<img class="el-image" alt="" src="{% static 'images/formacioncapacitacion.jpg' %}" alt='artsy Hong' width="400" height="250"><h4>FORMACIÓN Y CAPACITACIÓN </h4></div>
-
-				</div>
-				<div class="col-md-6  ">
-					<div class="h-caption" >
-						<img class="el-image" alt="" src="{% static 'images/laboratoriobisdata.jpg' %}" alt='artsy Hong' width="400" height="250"><h4>LABORATORIO DE CIENCIAS DE LA COMPUTACIÓN E INTELIGENCIA ARTIFICIAL</h4></div>
-
-				</div>
-			</div> <!-- /row  -->
-		
-		</div>
-	</div>
-	<!-- /Highlights -->
-
-	<!-- Highlights - jumbotron -->
-	<div class="jumbotron top-space">
-		<div class="container">
-			
-			<h3 class="text-center thin"><b>CO-FUNDADORES</b> </h3>
-			
-			<div class="row">
-				<div class="col-md-3 col-sm-6 highlight">
-				</div>
-				<div class="col-md-3 col-sm-6 highlight">
-					<div class="h-caption"><h4>
-						<img class="el-image" alt="" src="{% static 'images/foto_alexis.png' %}"> Anderson Alexis Ruales</h4></div>
-					<div class="h-body text-justify">
-						<p>Estudiante doctoral en física de altas energías, 
-							con más de 3 años de experiencia en ciencia e 
-							ingeniería de datos. Experto en visión artificial,
-							 Big Data, Machine Learning, Intigencia Artificial y 
-							 Visualización Analítica. Experiencia en implementar 
-							 soluciones orientadas a problemas comerciales complejos.</p>
+								<div class="row">
+									<div class="col-lg-8">
+										<b><a href="" style="color: #141414;">¿Se te olvidó tu contraseña?</a></b>
+									</div>
+									<div class="col-lg-4 text-right">
+										<button href="{% url 'postsignIn' %}" class="btn btn-action" type="submit" value="SignIn" style="background: #141414;">Sign in</button>
+									</div>
+								</div>
+							</form>
+						</div>
 					</div>
+
 				</div>
-				<div class="col-md-3 col-sm-6 highlight">
-					<div class="h-caption"><h4>
-						<img class="el-image" alt="" src="{% static 'images/foto_josue.png' %}">Josue Serna</h4></div>
-					<div class="h-body text-justify">
-						<p>Estudiante universitario, formación 
-							en Ciencia y entrenamiento internacional en analitica de datos. </p>
-					</div>
-				</div>
-			</div> <!-- /row  -->
-		
+				
+			</article>
+			<!-- /Article -->
+
 		</div>
-	</div>
-	<!-- /Highlights -->
-</div>	<!-- /container -->	
-	<!-- Social links. @TODO: replace by link/instructions in template -->
-	<section id="social">
-		<div class="container">
-			<div class="wrapper clearfix">
-				<!-- AddThis Button BEGIN -->
-				<div class="addthis_toolbox addthis_default_style">
-				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-				<a class="addthis_button_tweet"></a>
-				<a class="addthis_button_linkedin_counter"></a>
-				<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-				</div>
-				<!-- AddThis Button END -->
-			</div>
-		</div>
-	</section>
-	<!-- /social links -->
+	</div>	<!-- /container -->
+	
+
 	<footer id="footer" class="top-space">
+
 		<div class="footer1" style="background: #141414;">
 			<div class="container">
-				<div class="row">					
+				<div class="row">
+					
 					<div class="col-md-3 widget">
 						<h3 class="widget-title" style="font-size: 20px; font-weight: bold; color: rgb(252, 252, 252); margin: 0 0 20px; ">Contacto</h3>
 						<div class="widget-body">
@@ -214,9 +155,9 @@
 								<br>
 								Colombia, Medellín, Carrera 79a # 45-177.
 							</p>	
-							
 						</div>
 					</div>
+
 					<div class="col-md-3 widget">
 						<h3 class="widget-title" style="font-size: 20px; font-weight: bold; color: rgb(252, 252, 252); margin: 0 0 20px; ">Follow me</h3>
 						<div class="widget-body">
@@ -225,26 +166,13 @@
 								<a href=""><i class="fa fa-dribbble fa-2"></i></a>
 								<a href=""><i class="fa fa-github fa-2"></i></a>
 								<a href=""><i class="fa fa-facebook fa-2"></i></a>
-								
-							</p>
-
+							</p>	
 						</div>
-					</div>
-					<div class="col-md-3 widget">
-						<img class="el-image"  alt=""  src="{% static 'images/creame.png' %}" width="230" style="vertical-align:middle;margin:0px -150px">
-					</div>
-					<div class="col-md-3 widget">
-						<img class="el-image" alt="" src="{% static 'images/rutaN.png' %}" width="145" style="vertical-align:middle;margin:0px -190px">
-					</div>
-					<div class="col-md-3 widget">
-						<img class="el-image" alt="" src="{% static 'images/Vr.png' %}" width="125" style="position:relative;left:-25px; top:-130px">
-					</div>
-					<div class="col-md-3 widget">
-						<img class="el-image" alt="" src="{% static 'images/uni.png' %}" width="100" style="position:relative; left:1000px; top:-270px">
 					</div>
 				</div> <!-- /row of widgets -->
 			</div>
 		</div>
+
 		<div class="footer2" style="background: #141414;" >
 			<div class="container">
 				<div class="row">
@@ -263,9 +191,11 @@
 				</div> <!-- /row of widgets -->
 			</div>
 		</div>
-
 	</footer>	
-	
+		
+
+
+
 
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
